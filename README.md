@@ -1,7 +1,10 @@
 
 # Share 用户管理小程序
-![f6be7b31e986adbf6eda0fc5cf346db](https://github.com/user-attachments/assets/32352cd6-cb22-44ad-92e5-f42e8938535a)
-![d61d144a2a51d199ad174d745cd9f70](https://github.com/user-attachments/assets/a7140ad7-74fe-4a73-8b69-69e0c84a1b68)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/32352cd6-cb22-44ad-92e5-f42e8938535a" width="300" />
+  <img src="https://github.com/user-attachments/assets/a7140ad7-74fe-4a73-8b69-69e0c84a1b68" width="300" />
+</p>
+
 
 ### 注：全部内容由Cursor自动生成~
 这是一个基于微信小程序的 Share 用户管理系统。该系统用于管理 Share 用户的使用信息，包括用户 Token、到期时间、PLUS 会员状态和备注信息。
