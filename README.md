@@ -1,4 +1,4 @@
-```markdown
+
 # Share 用户管理小程序
 
 ### 注：全部内容由Cursor自动生成~
