@@ -1,0 +1,78 @@
+<view class="form-container">
+  <view class="form-group">
+    <text class="label">用户Token</text>
+    <view class="token-input-group">
+      <input 
+        class="input {{!isEdit ? 'with-btn' : ''}}" 
+        type="text" 
+        placeholder="请输入用户Token" 
+        value="{{formData.userToken}}"
+        bindinput="onInputToken"
+      />
+      <view class="generate-btn" bindtap="generateUUID" wx:if="{{!isEdit}}">
+        <text>生成</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="form-group">
+    <text class="label">到期时间</text>
+    <view class="datetime-picker" bindtap="showDateTimePicker">
+      <text class="picker-text">{{formData.expireTime || '请选择到期时间'}}</text>
+    </view>
+  </view>
+
+  <view class="form-group">
+    <text class="label">是否Plus</text>
+    <switch checked="{{formData.isPlus}}" bindchange="onSwitchPlus"/>
+  </view>
+
+  <view class="form-group">
+    <text class="label">备注</text>
+    <textarea 
+      class="textarea" 
+      placeholder="请输入备注" 
+      value="{{formData.remark}}"
+      bindinput="onInputRemark"
+    />
+  </view>
+
+  <view class="btn-group">
+    <button class="btn cancel" bindtap="onCancel">取消</button>
+    <button class="btn submit" type="primary" bindtap="onSubmit">确定</button>
+  </view>
+</view>
+
+<view class="picker-modal {{showPicker ? 'show' : ''}}">
+  <view class="picker-mask" bindtap="hideDateTimePicker"></view>
+  <view class="picker-content">
+    <view class="picker-header">
+      <text class="cancel-btn" bindtap="hideDateTimePicker">取消</text>
+      <text class="confirm-btn" bindtap="confirmDateTime">确定</text>
+    </view>
+    <picker-view 
+      value="{{dateTimeArray}}" 
+      bindchange="onDateTimeChange" 
+      class="picker-view"
+    >
+      <picker-view-column>
+        <view wx:for="{{years}}" wx:key="*this" class="picker-item">{{item}}年</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{months}}" wx:key="*this" class="picker-item">{{item}}月</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{days}}" wx:key="*this" class="picker-item">{{item}}日</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{hours}}" wx:key="*this" class="picker-item">{{item}}时</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{minutes}}" wx:key="*this" class="picker-item">{{item}}分</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{seconds}}" wx:key="*this" class="picker-item">{{item}}秒</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view> 

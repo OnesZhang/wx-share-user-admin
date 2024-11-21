@@ -1,0 +1,447 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+  width: 80%;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.nickname-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-top: .5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.nickname-label {
+  width: 105px;
+}
+
+.nickname-input {
+  flex: 1;
+}
+
+.container {
+  padding: 20rpx;
+  background: #f5f5f5;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding-bottom: 180rpx;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 20rpx 0;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.search-bar input {
+  width: 90%;
+  height: 70rpx;
+  background: #f5f5f5;
+  border-radius: 35rpx;
+  padding: 0 30rpx;
+  margin: 0 auto;
+  font-size: 28rpx;
+}
+
+.user-list {
+  width: 100%;
+  margin-top: 20rpx;
+}
+
+.user-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.08);
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* PLUS标志样式 */
+.plus-badge {
+  position: absolute;
+  top: 20rpx;
+  right: 20rpx;
+  padding: 4rpx 16rpx;
+  border-radius: 20rpx;
+  font-size: 24rpx;
+  font-weight: bold;
+  background: linear-gradient(45deg, #FFD700, #FFA500);
+  color: #fff;
+  box-shadow: 0 2rpx 10rpx rgba(255,215,0,0.3);
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+/* Token样式 */
+.token-text {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-right: 100rpx; /* 为PLUS标志留出空间 */
+}
+
+/* 到期时间样式 */
+.expire-time {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: auto;
+}
+
+/* 备注样式 */
+.remark {
+  font-size: 26rpx;
+  color: #999;
+  margin-top: 10rpx;
+}
+
+.operations {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20rpx;
+  margin-top: 20rpx;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 20rpx;
+}
+
+.operations button {
+  margin: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+}
+
+.operations button[type="warn"] {
+  background: #fff;
+  color: #ff4d4f;
+  border: 1px solid #ff4d4f;
+}
+
+/* 分页样式优化 */
+.pagination {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -1rpx 6rpx rgba(0,0,0,0.02);
+  z-index: 90;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+}
+
+.page-size-selector {
+  flex: 0 0 auto;
+}
+
+.size-text {
+  font-size: 24rpx;
+  color: #999;
+  padding: 8rpx 16rpx;
+  background: #f8f8f8;
+  border-radius: 4rpx;
+}
+
+.page-controls {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.nav-btn {
+  font-size: 24rpx;
+  color: #666;
+  padding: 8rpx 16rpx;
+  transition: all 0.2s;
+}
+
+.nav-btn.disabled {
+  color: #ccc;
+  pointer-events: none;
+}
+
+.nav-btn:active {
+  opacity: 0.7;
+}
+
+.page-text {
+  font-size: 24rpx;
+  color: #666;
+  min-width: 60rpx;
+  text-align: center;
+}
+
+/* 添加点击反馈 */
+.icon-btn:active {
+  opacity: 0.7;
+}
+
+/* 新增按钮样式 */
+.add-btn {
+    position: fixed;
+    bottom: calc(120rpx + env(safe-area-inset-bottom));
+    right: 40rpx;
+    width: 96rpx;
+    height: 96rpx;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1890ff, #096dd9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4rpx 20rpx rgba(24,144,255,0.3);
+    transition: all 0.3s ease; /* 添加过渡效果 */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.add-btn:active {
+  transform: scale(0.95);
+}
+
+/* 当隐藏时，不显示 */
+.add-btn.hidden {
+    opacity: 0;
+    transform: translateY(100rpx);
+    pointer-events: none;
+}
+
+/* 调整用户信息布局以适应浮动按钮 */
+.user-info {
+  padding-bottom: 60rpx; /* 为浮动按钮留出空间 */
+}
+
+.token-text {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333;
+  margin-right: 100rpx;
+  word-break: break-all;
+}
+
+.expire-time {
+  font-size: 26rpx;
+  color: #666;
+  margin-top: 16rpx;
+}
+
+/* 禁用状态 */
+.icon-btn[disabled] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* 浮动按钮容器 */
+.float-buttons {
+  position: absolute;
+  right: 20rpx;
+  bottom: 20rpx;
+  display: flex;
+  gap: 16rpx;
+}
+
+/* 图标按钮样式 */
+.icon-btn {
+  width: 64rpx;
+  height: 64rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 2rpx 8rpx rgba(0,0,0,0.1);
+  transition: all 0.3s;
+}
+
+.icon-btn:active {
+  transform: scale(0.95);
+}
+
+.icon-btn.edit {
+  background: #f8f8f8;
+}
+
+.icon-btn.delete {
+  background: #fff0f0;
+}
+
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .container {
+    padding-bottom: calc(180rpx + env(safe-area-inset-bottom));
+  }
+}
+
+/* 页面容器 */
+.page-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f5f5f5;
+  position: relative;
+}
+
+/* 搜索栏 */
+.search-bar {
+  flex: none;
+  padding: 20rpx;
+  background: #fff;
+  position: relative;
+  z-index: 91;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.02);
+}
+
+.search-bar input {
+  width: 100%;
+  height: 70rpx;
+  background: #f5f5f5;
+  border-radius: 35rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  font-size: 28rpx;
+}
+
+/* 列表容器 */
+.user-list-container {
+  flex: 1;
+  overflow: hidden;
+}
+
+.user-list {
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+
+/* 用户卡片 */
+.user-item {
+  background: #fff;
+  border-radius: 16rpx;
+  padding: 30rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0,0,0,0.08);
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* 分页控件 */
+.pagination {
+  flex: none;
+  padding: 20rpx 30rpx;
+  background: #fff;
+  position: relative;
+  z-index: 91;
+  box-shadow: 0 -1rpx 6rpx rgba(0,0,0,0.02);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: calc(20rpx + env(safe-area-inset-bottom));
+}
+
+/* 添加按钮 */
+.add-btn {
+  position: fixed;
+  bottom: calc(120rpx + env(safe-area-inset-bottom));
+  right: 40rpx;
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1890ff, #096dd9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4rpx 20rpx rgba(24,144,255,0.3);
+  transition: all 0.3s;
+  z-index: 100;
+}
+
+/* 分页控件内部样式 */
+.page-controls {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.nav-btn {
+  font-size: 24rpx;
+  color: #666;
+  padding: 8rpx 16rpx;
+  transition: all 0.2s;
+}
+
+.nav-btn.disabled {
+  color: #ccc;
+  pointer-events: none;
+}
+
+.page-text {
+  font-size: 24rpx;
+  color: #666;
+  min-width: 60rpx;
+  text-align: center;
+}
+
+.page-size-selector {
+  flex: none;
+}
+
+.size-text {
+  font-size: 24rpx;
+  color: #999;
+  padding: 8rpx 16rpx;
+  background: #f8f8f8;
+  border-radius: 4rpx;
+}
+
+.add-btn.hidden {
+  display: none;
+}

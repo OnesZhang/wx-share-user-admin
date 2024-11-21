@@ -1,0 +1,54 @@
+<!--index.wxml-->
+<view class="page-container">
+  <!-- 固定顶部搜索栏 -->
+  <view class="search-bar">
+    <input type="text" placeholder="搜索用户" model:value="{{keyWord}}" bindinput="onSearch"/>
+  </view>
+
+  <!-- 可滚动的列表区域 -->
+  <scroll-view 
+    class="user-list-container" 
+    scroll-y
+    bindscrolltolower="onScrollToLower"
+    bindscroll="handleScroll"
+    lower-threshold="100"
+  >
+    <view class="user-list" style="padding-bottom: {{listPaddingBottom}}px;">
+      <view class="user-item" wx:for="{{userList}}" wx:key="id">
+        <view class="plus-badge" wx:if="{{item.isPlus}}">PLUS</view>
+        <view class="user-info">
+          <text class="token-text">{{item.userToken}}</text>
+          <text class="expire-time">{{item.expireTime}}</text>
+          <text class="remark" wx:if="{{item.remark}}">备注: {{item.remark}}</text>
+        </view>
+        <view class="float-buttons">
+          <view class="icon-btn edit" bindtap="editUser" data-user="{{item}}">
+            <mp-icon icon="pencil" size="{{20}}" color="#666"></mp-icon>
+          </view>
+          <view class="icon-btn delete" bindtap="deleteUser" data-id="{{item.id}}">
+            <mp-icon icon="delete" size="{{20}}" color="#ff4d4f"></mp-icon>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+
+  <!-- 固定底部分页 -->
+  <view class="pagination">
+    <view class="page-size-selector">
+      <picker bindchange="onPageSizeChange" value="{{pageSizeIndex}}" range="{{pageSizes}}">
+        <text class="size-text">{{pagination.size}}条/页</text>
+      </picker>
+    </view>
+    <view class="page-controls">
+      <text class="nav-btn {{pagination.page <= 1 ? 'disabled' : ''}}" bindtap="prevPage">＜</text>
+      <text class="page-text">{{pagination.page}}/{{maxPage}}</text>
+      <text class="nav-btn {{pagination.page >= maxPage ? 'disabled' : ''}}" bindtap="nextPage">＞</text>
+    </view>
+  </view>
+
+  <!-- 悬浮添加按钮 -->
+  <view class="add-btn {{hideAddBtn ? 'hidden' : ''}}" bindtap="showAddUser">
+      <mp-icon icon="add" size="{{30}}" color="#fff"></mp-icon>
+  </view>
+</view>
